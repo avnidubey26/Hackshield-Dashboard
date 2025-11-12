@@ -4,11 +4,12 @@ body {
     background-color: #0d1117;
     color: #00ff00;
     margin: 0;
-    padding: 20px;
+    padding: 80px 20px 20px 20px; /* NAYA: Navbar ke liye upar se padding */
     display: grid;
     place-items: center;
     min-height: 95vh;
     overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 #particles-js {
@@ -18,6 +19,51 @@ body {
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+/* --- NAYA: Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 30, 30, 0.9); /* Thoda solid background */
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #004d00;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+.nav-brand a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00ff00;
+    text-decoration: none;
+    text-shadow: 0 0 10px #00ff00;
+}
+.nav-brand i {
+    margin-right: 10px;
+}
+.nav-links a {
+    font-size: 1.1em;
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+.nav-links a:hover {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+.nav-links a.active { /* Active page link */
+    color: #fff;
+    font-weight: bold;
+}
+#user-button-container {
+    z-index: 1001;
 }
 
 /* --- Common Container Style --- */
@@ -31,10 +77,10 @@ body {
     text-align: center;
     border: 1px solid #004d00;
     z-index: 10;
-    margin: 3rem 0;
+    margin-top: 2rem; /* Navbar ke neeche */
 }
 
-/* --- Portrait Login Box --- */
+/* --- Portrait Login/About Box --- */
 .container-login {
     max-width: 500px;
 }
@@ -76,125 +122,53 @@ header h1 {
     align-items: center;
 }
 
-/* --- NAYA: Social Login Buttons --- */
-.social-logins {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-.social-btn {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-family: Arial, sans-serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center; /* Center icon and text */
-    gap: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-.social-btn i {
-    font-size: 1.2rem;
-}
-.google-btn {
-    background-color: #fff;
-    color: #444;
-}
-.google-btn i {
-    color: #DB4437; /* Google red */
-}
-.google-btn:hover {
-    background-color: #f5f5f5;
-}
-.github-btn {
-    background-color: #333;
-    color: #fff;
-    border-color: #555;
-}
-.github-btn i {
-    color: #fff;
-}
-.github-btn:hover {
-    background-color: #444;
+/* --- Login Page Specifics --- */
+#firebaseui-auth-container {
+    margin-top: 2rem;
+    --firebaseui-text-color: #e0e0e0;
+    --firebaseui-background-color: transparent;
+    --firebaseui-border: 1px solid #004d00;
+    --firebaseui-border-radius: 8px;
+    --firebaseui-input-background-color: #0f131a;
+    --firebaseui-input-border-color: #004d00;
+    --firebaseui-link-color: #00ff00;
+    --firebaseui-button-background-color: #00ff00;
+    --firebaseui-button-text-color: #0d1117;
+    --firebaseui-button-hover-background-color: #00aa00;
 }
 
-/* --- NAYA: Divider (or) --- */
-.divider {
-    font-size: 1rem;
-    color: #888;
-    margin-bottom: 1.5rem;
-}
-
-/* --- NAYA: Email Form --- */
-.email-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.email-form input {
-    font-family: 'Share Tech Mono', monospace;
+/* --- NAYA: About Page Style --- */
+.about-content {
+    text-align: left;
+    color: #ccc;
     font-size: 1.1rem;
-    background-color: #0f131a;
-    border: 1px solid #004d00;
-    border-radius: 8px;
-    padding: 14px;
-    color: #e0e0e0;
 }
-.email-form input::placeholder {
-    color: #666;
+.about-content h3 {
+    color: #00ff00;
+    border-bottom: 1px dashed #004d00;
+    padding-bottom: 5px;
 }
-.email-buttons {
-    display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem;
+.about-content ul {
+    list-style: none;
+    padding-left: 10px;
 }
-.email-btn {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    padding: 14px;
-    cursor: pointer;
-    flex: 1; /* Both buttons take equal space */
-    transition: background-color 0.3s;
+.about-content li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
 }
-.email-btn:hover {
-    background-color: #00aa00;
-}
-.email-btn.secondary {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #555;
-}
-.email-btn.secondary:hover {
-    background-color: #444;
-}
-.email-btn {
-    background: #00ff00;
-    color: #0d1117;
-}
-
-/* NAYA: Error Message Style */
-.auth-error {
-    color: #F44336; /* Red */
-    font-size: 0.9rem;
-    margin: 0;
-    display: none; /* Hidden by default */
+.about-content li::before {
+    content: '\f135'; /* Font Awesome shield icon */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #00ff00;
+    position: absolute;
+    left: 0;
+    top: 2px;
 }
 
 
 /* --- User Button (Logout) --- */
-#user-button-container {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 100;
-}
 #logout-btn {
     background: #8B0000;
     color: #ff0000;
